@@ -1,275 +1,197 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
-  <head>
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-    <title>Ruby on Rails: Welcome aboard</title>
-    <style type="text/css" media="screen">
-      body {
-        margin: 0;
-        margin-bottom: 25px;
-        padding: 0;
-        background-color: #f0f0f0;
-        font-family: "Lucida Grande", "Bitstream Vera Sans", "Verdana";
-        font-size: 13px;
-        color: #333;
-      }
-      
-      h1 {
-        font-size: 28px;
-        color: #000;
-      }
-      
-      a  {color: #03c}
-      a:hover {
-        background-color: #03c;
-        color: white;
-        text-decoration: none;
-      }
-      
-      
-      #page {
-        background-color: #f0f0f0;
-        width: 750px;
-        margin: 0;
-        margin-left: auto;
-        margin-right: auto;
-      }
-      
-      #content {
-        float: left;
-        background-color: white;
-        border: 3px solid #aaa;
-        border-top: none;
-        padding: 25px;
-        width: 500px;
-      }
-      
-      #sidebar {
-        float: right;
-        width: 175px;
-      }
+<!DOCTYPE html>
 
-      #footer {
-        clear: both;
-      }
-      
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300|Marcellus|Lato' rel='stylesheet' type='text/css'>
+	<meta charset="utf-8" />
 
-      #header, #about, #getting-started {
-        padding-left: 75px;
-        padding-right: 30px;
-      }
+	<!-- Set the viewport width to device width for mobile -->
+	<meta name="viewport" content="width=device-width" />
+
+  	<title>C9VoIP.com - VoIP Residential & Business Voice Phone Service</title>
+  
+	<!-- Included CSS Files -->
+	<link rel="stylesheet" href="stylesheets/foundation.css">
+	<link rel="stylesheet" href="stylesheets/app.css">
+
+	<!--[if lt IE 9]>
+		<link rel="stylesheet" href="stylesheets/ie.css">
+	<![endif]-->
 
 
-      #header {
-        background-image: url("images/rails.png");
-        background-repeat: no-repeat;
-        background-position: top left;
-        height: 64px;
-      }
-      #header h1, #header h2 {margin: 0}
-      #header h2 {
-        color: #888;
-        font-weight: normal;
-        font-size: 16px;
-      }
-      
-      
-      #about h3 {
-        margin: 0;
-        margin-bottom: 10px;
-        font-size: 14px;
-      }
-      
-      #about-content {
-        background-color: #ffd;
-        border: 1px solid #fc0;
-        margin-left: -11px;
-      }
-      #about-content table {
-        margin-top: 10px;
-        margin-bottom: 10px;
-        font-size: 11px;
-        border-collapse: collapse;
-      }
-      #about-content td {
-        padding: 10px;
-        padding-top: 3px;
-        padding-bottom: 3px;
-      }
-      #about-content td.name  {color: #555}
-      #about-content td.value {color: #000}
-      
-      #about-content.failure {
-        background-color: #fcc;
-        border: 1px solid #f00;
-      }
-      #about-content.failure p {
-        margin: 0;
-        padding: 10px;
-      }
-      
-      
-      #getting-started {
-        border-top: 1px solid #ccc;
-        margin-top: 25px;
-        padding-top: 15px;
-      }
-      #getting-started h1 {
-        margin: 0;
-        font-size: 20px;
-      }
-      #getting-started h2 {
-        margin: 0;
-        font-size: 14px;
-        font-weight: normal;
-        color: #333;
-        margin-bottom: 25px;
-      }
-      #getting-started ol {
-        margin-left: 0;
-        padding-left: 0;
-      }
-      #getting-started li {
-        font-size: 18px;
-        color: #888;
-        margin-bottom: 25px;
-      }
-      #getting-started li h2 {
-        margin: 0;
-        font-weight: normal;
-        font-size: 18px;
-        color: #333;
-      }
-      #getting-started li p {
-        color: #555;
-        font-size: 13px;
-      }
-      
-      
-      #search {
-        margin: 0;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        font-size: 11px;
-      }
-      #search input {
-        font-size: 11px;
-        margin: 2px;
-      }
-      #search-text {width: 170px}
-      
-      
-      #sidebar ul {
-        margin-left: 0;
-        padding-left: 0;
-      }
-      #sidebar ul h3 {
-        margin-top: 25px;
-        font-size: 16px;
-        padding-bottom: 10px;
-        border-bottom: 1px solid #ccc;
-      }
-      #sidebar li {
-        list-style-type: none;
-      }
-      #sidebar ul.links li {
-        margin-bottom: 5px;
-      }
-      
-    </style>
-    <script type="text/javascript" src="javascripts/prototype.js"></script>
-    <script type="text/javascript" src="javascripts/effects.js"></script>
-    <script type="text/javascript">
-      function about() {
-        if (Element.empty('about-content')) {
-          new Ajax.Updater('about-content', 'rails/info/properties', {
-            method:     'get',
-            onFailure:  function() {Element.classNames('about-content').add('failure')},
-            onComplete: function() {new Effect.BlindDown('about-content', {duration: 0.25})}
-          });
-        } else {
-          new Effect[Element.visible('about-content') ? 
-            'BlindUp' : 'BlindDown']('about-content', {duration: 0.25});
-        }
-      }
-      
-      window.onload = function() {
-        $('search-text').value = '';
-        $('search').onsubmit = function() {
-          $('search-text').value = 'site:rubyonrails.org ' + $F('search-text');
-        }
-      }
-    </script>
-  </head>
-  <body>
-    <div id="page">
-      <div id="sidebar">
-        <ul id="sidebar-items">
-          <li>
-            <form id="search" action="http://www.google.com/search" method="get">
-              <input type="hidden" name="hl" value="en" />
-              <input type="text" id="search-text" name="q" value="site:rubyonrails.org " />
-              <input type="submit" value="Search" /> the Rails site
-            </form>
-          </li>
-        
-          <li>
-            <h3>Join the community</h3>
-            <ul class="links">
-              <li><a href="http://www.rubyonrails.org/">Ruby on Rails</a></li>
-              <li><a href="http://weblog.rubyonrails.org/">Official weblog</a></li>
-              <li><a href="http://wiki.rubyonrails.org/">Wiki</a></li>
-            </ul>
-          </li>
-          
-          <li>
-            <h3>Browse the documentation</h3>
-            <ul class="links">
-              <li><a href="http://api.rubyonrails.org/">Rails API</a></li>
-              <li><a href="http://stdlib.rubyonrails.org/">Ruby standard library</a></li>
-              <li><a href="http://corelib.rubyonrails.org/">Ruby core</a></li>
-              <li><a href="http://guides.rubyonrails.org/">Rails Guides</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
+	<!-- IE Fix for HTML5 Tags -->
+	<!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
 
-      <div id="content">
-        <div id="header">
-          <h1>Welcome aboard</h1>
-          <h2>You&rsquo;re riding Ruby on Rails!</h2>
-        </div>
+</head>
+<body>
 
-        <div id="about">
-          <h3><a href="rails/info/properties" onclick="about(); return false">About your application&rsquo;s environment</a></h3>
-          <div id="about-content" style="display: none"></div>
-        </div>
-        
-        <div id="getting-started">
-          <h1>Getting started</h1>
-          <h2>Here&rsquo;s how to get rolling:</h2>
-          
-          <ol>          
-            <li>
-              <h2>Use <tt>script/generate</tt> to create your models and controllers</h2>
-              <p>To see all available options, run it without parameters.</p>
-            </li>
-            
-            <li>
-              <h2>Set up a default route and remove or rename this file</h2>
-              <p>Routes are set up in config/routes.rb.</p>
-            </li>
 
-            <li>
-              <h2>Create your database</h2>
-              <p>Run <tt>rake db:migrate</tt> to create your database. If you're not using SQLite (the default), edit <tt>config/database.yml</tt> with your username and password.</p>
-            </li>
-          </ol>
-        </div>
-      </div>
-      
-      <div id="footer">&nbsp;</div>
-    </div>
-  </body>
+		<div class="row">
+			<div class="two columns">
+				<a href="index.html"><img src="images/misc/c9-voip-logo.png" align="bottom" height="64" width="158"/></a>
+<!-- didn't fucking work	<a href="#" class="fc-webicon facebook">Like us on Facebook</a>
+				<a href="#" class="fc-webicon twitter">Follow us on Twitter</a>
+				<a href="#" class="fc-webicon googleplus">Add us on Google+</a>
+				<a href="#" class="fc-webicon linkedin">Check us out on LinkedIn</a> -->
+			</div>
+			<div class="five columns">
+				<div style="text-align:right">
+					<a href="#"><img src="images/fc-webicon-facebook-m.png" alt="Like us on Facebook" title="Like us on Facebook"></a>
+					<a href="#"><img src="images/fc-webicon-twitter-m.png" alt="Follow us on Twitter" title="Follow us on Twitter"></a>
+					<a href="#"><img src="images/fc-webicon-googleplus-m.png" alt="Add us on Google Plus" title="Add us on Google Plus"></a>
+					<a href="#"><img src="images/fc-webicon-linkedin-m.png" alt="Check us out on LinkedIn" title="Check us out on LinkedIn"></a>
+				</div>
+				<br><div style="font-style:italic; text-align:center"><strong>Your Voice over IP... on Cloud 9</strong>
+				</div>
+			</div>
+			<div class="two columns">
+				<div style="text-align:right; font-size:12px">
+					<strong>Call Us</strong>
+					<br>Toll-Free (855)9-<strong>C9VOIP</strong>
+					<br>Direct (954)607-1497
+				</div>
+			</div>
+			<div class="three columns">
+				<div style="text-align:right">
+					<a href="preferences.html" class="small secondary button">Preferences</a>
+					<a href="login.html" class="small secondary button">Login</a>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="twelve columns">
+				<ul class="nav-bar">
+					<li><a href="index.html" class="main"><strong>Home</strong></a></li>
+					<li class="has-flyout"><a href="manage.html" class="main"><strong>Manage</strong></a>
+						<a href="residential.html" class="flyout-toggle"><span></span></a>
+							<div class="flyout small">
+								<h5>Manage</h5>
+								<p><a href="manage.html">Manage your C9VoIP Services here.</a>
+								<br>Here you can adjust your service settings and more.
+								</p>
+							</div>
+					</li>
+					<li class="has-flyout"><a href="call-logs.html" class="main"><strong>Call Logs</strong></a>
+						<a href="call-logs.html" class="flyout-toggle"><span></span></a>
+							<div class="flyout small">
+			  					<h5>Call Logs</h5>
+								<p><a href="call-logs.html">See your Call Logs here</a>
+			  				</div>
+					</li>
+					<li class="has-flyout"><a href="billing.html" class="main"><strong>Billing</strong></a>
+						<a href="billing.html" class="flyout-toggle"><span></span></a>
+							<div class="flyout small">
+        							<h5>Billing</h5>
+								<p><a href="billing.html">Here you can see your Invoices, make a payment, and other Billing activities</a></p>
+			  				</div>
+					</li>
+					<li class="has-flyout"><a href="support.html" class="main"><strong>Support</strong></a>
+						<a href="support.html" class="flyout-toggle"><span></span></a>
+							<div class="flyout">
+								<h5>Support Details</h5>							
+								<p><a href="support.html"><strong>Support Dashboard</strong></a>
+								<br><br><a href="faq.html"><strong>FAQ</strong> - Frequently asked questions</a>
+								<br><br><a href="setup-guides.html"><strong>Setup Guides</strong> - guides for Android, iOS, Linux, Mac, and Windows</a>
+								<br><br><a href="how-it-works.html"><strong>How it works</strong> - a video and some other helpful details on how it works</a>
+								<br><br><a href="fax-support.html"><strong>Fax Support</strong> - details on the C9VoIP Fax service</a>
+								<br><br><a href="sms-support.html"><strong>SMS Support</strong> - details on the C9VoIP SMS service</a>
+								<br><br><a href="billing-support.html"><strong>Billing questions</strong> - make sure you have all your billing questions answered</a>
+						<!--		<br><br><a href="training.html"><strong>Training Information</strong> - Learn everything there is to know about C9VoIP.</a></p> -->
+							</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+
+<div class="row">
+	<div class="twelve columns">
+		<div class="panel radius">
+			<div class="row">
+				<div class="twelve columns">
+					<div style="font-size:10px; text-align:center;">
+						<h3>Account Balance:</h3>
+					</div>
+				</div>
+				<div class="row">
+					<div class="four columns">
+					<div class="panel radius">
+						<h5>My C9VoIP Services</h5>
+						<p>1. The user will find
+						<br>2. a list of their 
+						<br>3. services with us.
+						</p> 
+					</div>
+					</div>
+					<div class="four columns">
+					<div class="panel radius">
+						<h5>Recent Charges</h5>
+						<p>1. A list of the
+						<br>2. most recent charges
+						<br>3. here...
+					</div>
+					</div>
+					<div class="four columns">
+						<p><a href="billing.html">Make a payment</a>
+						<br><a href="http://viewmyfax.com">Link to FAX panel</a>
+						<br><a href="http://s.ms">Link to SMS fanel</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+			<div class="twelve columns">
+				<div style="text-align:center; font-size:10px"><a href="http://c9voip.com/contact-us.html">Contact Us</a> | <a href="http://c9voip.com/why-c9voip.html">About C9VoIP</a> | <a href="http://c9voip.com/legal.html">Legal</a> | <a href="http://c9voip.com/partners.html">Affiliates & Partners</a></div>
+				<br><div style="text-align:center; font-size:10px">&copy; 2006-2012 copyright - <a href="http://www.c9operations.com" target="_blank">C9 Operations LLC</a></div><br>
+			</div>
+		</div>
+
+	</div>
+
+  <!-- Included JS Files (Compressed) -->
+  <script src="javascripts/jquery.js"></script>
+  <script src="javascripts/foundation.min.js"></script>
+	<script src="javascripts/jquery.reveal.js"></script>
+	<script src="javascripts/jquery.orbit-1.4.0.js"></script>
+	<script src="javascripts/jquery.customforms.js"></script>
+	<script src="javascripts/jquery.placeholder.min.js"></script>
+	<script src="javascripts/jquery.tooltips.js"></script>
+	<script src="javascripts/modernizr.foundation.js"></script>
+  
+  <!-- Initialize JS Plugins -->
+  <script src="javascripts/app.js"></script>
+
+	<!-- Old original JS Files from previous foundation version
+	<script src="javascripts/jquery.min.js"></script>
+	<script src="javascripts/foundation.js"></script>  -->
+	
+<script type="text/javascript">
+     $(window).load(function() {
+         $('#home-slider').orbit({
+              bullets: true,
+		timer: true,
+		animation: 'fade',
+		animationSpeed: 300,
+		advanceSpeed: 5500,
+		directionalNav: false,
+		pauseOnHover: true,
+		startClockOnMouseOut: true,
+		startClockOnMouseOutAfter: 500
+
+         });
+     });
+</script>
+
+</body>
 </html>

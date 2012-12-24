@@ -78,16 +78,16 @@
   <!-- This file lives in public/404.html -->
 <div class="row">
 	<div class="twelve columns">
-  <div class="panel">
-	<div style="text-align:center">
-	<h1>I'm sorry, the number 404.html has been disconnected.</h1>
-	<h3>If you feel you have reached this recording in error...</h3>
-	<br><br><h1>Oh No!!<br>
-	<br>  ..just kidding :)</h1>
-    <h3>The page you were looking for doesn't exist.</h3>
-    <p>You may have mistyped the address or the page may have moved.  Please check the number and dial again ;)</p><br><br><br>
- 	</div>
-	</div>
+		<div class="panel">
+			<div style="text-align:center">
+				<h1>I'm sorry, the number 404.html has been disconnected.</h1>
+				<h3>If you feel you have reached this recording in error...</h3>
+				<br><br><h1>Oh No!!<br>
+				<br>  ..just kidding :)</h1>
+				<h3>The page you were looking for doesn't exist.</h3>
+				<br><p>You may have mistyped the address or the page may have moved.  Please check the number and dial again ;)</p><br><br><br>
+			</div>
+		</div>
 	</div>
 </div>
 
